@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define MAX_STUDENTS 300
 
 // Định nghĩa cấu trúc Student
 typedef struct Student {
@@ -67,8 +68,8 @@ Student* makeStudent(){
     return st;
 }
 
-Student* addStudent(Student *head) {
-    while (1) {
+Student* addStudent(Student *head, int* studentCount) {
+    while (*studentCount < MAX_STUDENTS) {
         Student *newStudent = makeStudent(); // Tạo sinh viên mới
 
         if (strcmp(newStudent->name, "") == 0) {
@@ -87,6 +88,11 @@ Student* addStudent(Student *head) {
             }
             newStudent->nxt = current->nxt;
             current->nxt = newStudent; // Chèn sinh viên mới vào vị trí phù hợp
+        }
+
+        (*studentCount)++;
+        if(*studentCount >= MAX_STUDENTS) {
+            printf("Danh sach sinh vien da day\n");
         }
     }
     return head;
@@ -115,7 +121,7 @@ int main() {
 
     int choice;
     Student *head = NULL;
-
+    int studentCount = 0;
     do {
         menu();
         scanf("%d", &choice);
@@ -123,7 +129,7 @@ int main() {
 
         switch (choice) {
             case 1:
-                head = addStudent(head);
+                head = addStudent(head , &studentCount);
                 break;
             case 2:
                 printInfo(head);
