@@ -11,7 +11,8 @@ Phiên bản mới nhất: version5.c
 ### Cách 1: Chạy program.exe
 
 ### Cách 2: 
-  Bước 1. '''
+  Bước 1. 
+  '''
   gcc -o program version5.c  
   '''
 
