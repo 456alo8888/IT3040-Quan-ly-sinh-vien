@@ -12,9 +12,9 @@ Phiên bản mới nhất: version5.c
 
 ### Cách 2: 
   Bước 1. 
-  '''
+  ```
   gcc -o program version5.c  
-  '''
+  ```
 
   Bước 2. 
   Chạy program.exe
